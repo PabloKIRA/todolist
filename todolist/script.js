@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function addTask(taskText) {
         const li = document.createElement('li');
-        li.className = 'list-group-item';
-        li.textContent = taskText;
+        li.className = 'list-group-item d-flex justify-content-between align-items-center';
+        li.innerHTML = `${taskText} <i class="far fa-check-circle complete-icon" style="cursor: pointer;"></i>`;
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Eliminar';
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             taskList.removeChild(li);
         });
 
-        li.addEventListener('click', () => {
+        li.querySelector('.complete-icon').addEventListener('click', () => {
             li.classList.toggle('completed');
         });
 
@@ -37,4 +37,3 @@ document.addEventListener('DOMContentLoaded', () => {
         taskList.appendChild(li);
     }
 });
-
